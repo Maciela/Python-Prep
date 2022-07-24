@@ -36,7 +36,7 @@ print(mi_lista)
 
 # 9) Concatenar otra lista a la ya creada
 
-mi_lista2 = [1,2,3,4,5]
+mi_lista2 = ["Haiti","Argentina","Chile","New York","Brasil"]
 mi_lista.extend(mi_lista2)
 print(mi_lista)
 
@@ -50,7 +50,7 @@ print(mi_lista.index("Paris"))
 
 # 12) Eliminar un elemento de la lista
 
-mi_lista.remove(1)
+mi_lista.remove("Brasil")
 
 # 13) ¿Qué pasa si el elemento a eliminar no existe?
 
@@ -66,3 +66,53 @@ print(a)
 
 print(mi_lista*4)
 
+# 16) Crear una tupla que contenga los números enteros del 1 al 20
+mi_tupla = tuple(range(1,21))
+print(mi_tupla)
+print(type(mi_tupla))
+
+# 17) Imprimir desde el índice 10 al 15 de la tupla
+print( mi_tupla[10:15])
+
+# 18) Evaluar si los números 20 y 30 están dentro de la tupla
+
+print( 20 in mi_tupla)
+print( 30 in mi_tupla)
+
+#  19) Con la lista creada en el punto 1, validar la existencia del elemento 'París' y si no existe, agregarlo. Utilizar una variable e informar lo sucedido.
+
+#Paris ="Paris" in mi_lista
+#print(Paris)
+
+elemento = "Paris"
+if (not(elemento in mi_lista)):
+    mi_lista.append(elemento)
+    print("El elemento no existe, se agregó")
+else:
+    print("El elemento ya existe")  
+
+# 20) Mostrar la cantidad de veces que se encuentra un elemento específico dentro de la tupla y de la lista
+
+print(mi_tupla.count(20))
+print(mi_lista.count("Mendoza"))
+
+# 21) Convertir la tupla en una lista
+conver_mi_tupla = list(mi_tupla)
+print(conver_mi_tupla)
+print( type(conver_mi_tupla))
+
+# 22) Desempaquetar solo los primeros 3 elementos de la tupla en 3 variables
+var1,var2,var3 = mi_tupla[:3]	
+print("Var1:",var1, " Var2:", var2, " Var3:", var3)
+
+# 23) Crear un diccionario utilizando la lista crada en el punto 1, asignandole la clave "ciudad". Agregar tambien otras claves, como puede ser "Pais" y "Continente".
+
+mi_diccionario = {"Ciudad" : mi_lista ,"Continente" : ["Europa", "Asia" , "America", "Africa", "Asia"] , " Idiomas": ["ingles", "español", "frances"]}
+print(mi_diccionario)
+
+# 24) Imprimir las claves del diccionario
+
+print(mi_diccionario.keys())
+
+#  25) Imprimir las ciudades a través de su clave
+print(mi_diccionario["Ciudad"])
