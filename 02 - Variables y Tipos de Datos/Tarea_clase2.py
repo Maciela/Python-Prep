@@ -79,3 +79,7 @@ print(str(2) + "2")
 
 ## 26) Realizar una operación válida entre valores de tipo entero y string
 print("hola"*2)
+## si quiero cambiar la coma por un punto utilizo replace(",",".") Ejemplo: "3,8"
+l="3,8"
+l=l.replace(",",".")
+print(l)
