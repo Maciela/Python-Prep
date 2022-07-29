@@ -1,11 +1,11 @@
 # 1) Crear una función que reciba un número como parámetro y devuelva si True si es primo y False si no lo es
 def es_primo(n):
-    es_primo = True
+    primo = True
     for i in range(2, n):
         if n % i == 0:
-            es_primo = False
+            primo = False
             break
-    return es_primo
+    return primo
 
 print(es_primo(25))
 
@@ -48,14 +48,23 @@ def valor_moda(lista):
 
 
 
-lis1 = [1,1,1,1,1,2,2,2,3,4,4]
+lis1 = [-3,-3,-3,-3,-3,1,1,1,1,1,2,2,2,3,4,4]
 print(valor_moda(lis1))
 
 # 4) A la función del punto 3, agregar un parámetro más, que permita elegir si se requiere el menor o el mayor de los mas repetidos.
 
-def valor_moda(lista,opcion="mayor"):
+def valor_modal(lista,opcion):
      
     dic_repetidos = {}
+
+    if(lista==[]):
+        return "La lista está vacía"
+
+    if opcion == "menor":
+        lista.sort()
+    else:
+        lista.sort(reverse=True)
+    
     for nro in lista:
         clave = str(nro)
         if clave in dic_repetidos:
@@ -70,26 +79,12 @@ def valor_moda(lista,opcion="mayor"):
         if dic_repetidos[nro] > maximo:
             maximo = dic_repetidos[nro]
             moda= nro
-
-    lista_claves = list(dic_repetidos.keys())
-    lista_valores = list(dic_repetidos.values())
+    return moda, maximo
+    
   
-    if opcion == "mayor":
-        mayor = lista_claves[len(lista_claves)-1]
-        valor_mayor= lista_valores[len(lista_valores)-1]
-        return mayor, valor_mayor
-    elif (opcion=="menor"):
-        menor = lista_claves [0]
-        valor_menor = lista_valores[0]
-        return menor, valor_menor
-   
- 
 
-
-
-
-print(valor_moda(lis1, "mayor"))
-print(valor_moda(lis1, "menor"))
+print(valor_modal(lis1, "mayor"))
+print(valor_modal(lis1, "menor"))
 
 # 5) Crear una función que convierta entre grados Celsius, Farenheit y Kelvin<br>
 #Fórmula 1	: (°C × 9/5) + 32 = °F<br>
@@ -142,11 +137,15 @@ print("1 grado Kelvin a Kelvin: ", conversor_temperatura(1,"Kelvin","Kelvin"))
 # 7) Armar una función que devuelva el factorial de un número. Tener en cuenta que el usuario puede equivocarse y enviar de parámetro un número no entero o negativo
 
 def factorial(numero):
-    if numero == 0:
-        return 1
-    if (numero>=1):
-        return numero * factorial(numero-1)
+    if (type(numero)== int):
+       
+        if numero == 0:
+            return 1
+        if (numero>=1):
+            return numero * factorial(numero-1)
+        else:
+            return "El valor ingresado debe ser entero positivo"
     else:
-        return "El valor integro debe ser mayor o igual a 0"
+        return "El valor ingresado debe ser entero positivo"
 
 print(factorial(-3))
